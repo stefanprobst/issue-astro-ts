@@ -1,0 +1,14 @@
+---
+const locale = "en";
+/** 
+ * With the template literal `astro check` gives the following incorrect warning:
+ * 
+ * ```
+ * src/pages/index.astro:2:7 - warning ts(6133): 'locale' is declared but its value is never read.
+ * ```
+ * 
+ * Interestingly, there is no warning message with string concatenation.
+ */
+return Astro.redirect(`/${locale}`, 307);    // astro check prints warning message
+// return Astro.redirect("/" + locale, 307); // astro check prints no warning message
+---
